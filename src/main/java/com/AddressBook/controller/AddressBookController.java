@@ -9,12 +9,13 @@ public class AddressBookController {
     public static void main(String[] args) {
         System.out.println("welcome to the address book");
         AddressBookOperation addressBookOperation = new AddressBookOperation();
+        addressBookOperation.readJsonData();
         Scanner scanner = new Scanner(System.in);
         int repeat = 1;
         while (repeat == 1) {
             System.out.println("Enter the choice \n1 AddPerson \n2 ViewRecords \n3 EditInformation \n4 deleteRecord " +
                     "\n5 sortTheEntriesByName \n6 sort TheEntriesByAddress \n7 viewByCityAndState" +
-                    " \n8 searchRecordByCityOrState");
+                    " \n8 searchRecordByCityOrState" + "\n9 WriteInJson");
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -58,6 +59,10 @@ public class AddressBookController {
 
                 case 8:
                     addressBookOperation.searchRecordByCityOrState();
+                    break;
+
+                case 9:
+                    addressBookOperation.writeInJson();
                     break;
 
                 default:
