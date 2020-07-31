@@ -61,4 +61,5 @@ public class Person {
         return "PersonDetails [firstName=" + firstName + ", lastName=" + lastName + ", State=" + state
                 + " , City=" + city + " , Zip=" + zip + ", phoneNumber=" + phoneNumber + "]";
     }
+
 }
