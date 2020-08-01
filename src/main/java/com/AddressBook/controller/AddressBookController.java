@@ -9,13 +9,22 @@ public class AddressBookController {
     public static void main(String[] args) {
         System.out.println("welcome to the address book");
         AddressBookOperation addressBookOperation = new AddressBookOperation();
-        addressBookOperation.readJsonData();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the choice \n1 JSONFile \n2 CSVFile");
+        int choice = scanner.nextInt();
+        switch(choice) {
+            case 1 :
+                addressBookOperation.readJsonData();
+                break;
+            case 2 :
+                addressBookOperation.readDataFromCSV();
+                break;
+        }
         int repeat = 1;
         while (repeat == 1) {
             System.out.println("Enter the choice \n1 AddPerson \n2 ViewRecords \n3 EditInformation \n4 deleteRecord " +
                     "\n5 sortTheEntriesByName \n6 sort TheEntriesByAddress \n7 viewByCityAndState" +
-                    " \n8 searchRecordByCityOrState" + "\n9 WriteInJson");
+                    " \n8 searchRecordByCityOrState" + "\n9 WriteInJson" + "\n10 WriteInCsv");
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -65,6 +74,9 @@ public class AddressBookController {
                     addressBookOperation.writeInJson();
                     break;
 
+                case 10:
+                    addressBookOperation.writeDataInCSV();
+                    break;
                 default:
                     System.out.println("Invalid choice");
                     break;
