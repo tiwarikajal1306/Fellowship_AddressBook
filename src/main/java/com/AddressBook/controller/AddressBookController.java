@@ -10,7 +10,7 @@ public class AddressBookController {
         System.out.println("welcome to the address book");
         AddressBookOperation addressBookOperation = new AddressBookOperation();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the choice \n1 JSONFile \n2 CSVFile");
+        System.out.println("Enter the choice \n1 JSONFile \n2 CSVFile \n3 GSONFile");
         int choice = scanner.nextInt();
         switch(choice) {
             case 1 :
@@ -19,12 +19,15 @@ public class AddressBookController {
             case 2 :
                 addressBookOperation.readDataFromCSV();
                 break;
+            case 3 :
+                addressBookOperation.readDataFromGSON();
+                break;
         }
         int repeat = 1;
         while (repeat == 1) {
             System.out.println("Enter the choice \n1 AddPerson \n2 ViewRecords \n3 EditInformation \n4 deleteRecord " +
                     "\n5 sortTheEntriesByName \n6 sort TheEntriesByAddress \n7 viewByCityAndState" +
-                    " \n8 searchRecordByCityOrState" + "\n9 WriteInJson" + "\n10 WriteInCsv");
+                    " \n8 searchRecordByCityOrState" + "\n9 WriteInJson" + "\n10 WriteInCsv" + "\n11 WriteInGson");
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -77,6 +80,11 @@ public class AddressBookController {
                 case 10:
                     addressBookOperation.writeDataInCSV();
                     break;
+
+                case 11 :
+                    addressBookOperation.writeInGSON();
+                    break;
+
                 default:
                     System.out.println("Invalid choice");
                     break;

@@ -1,0 +1,26 @@
+[
+  {
+    "firstName": "kajal",
+    "lastName": "tiwari",
+    "state": "maha",
+    "city": "pune",
+    "zip": "8774",
+    "phoneNumber": "94758676"
+  },
+  {
+    "firstName": "swati",
+    "lastName": "singh",
+    "state": "mp",
+    "city": "bhopal",
+    "zip": "8765",
+    "phoneNumber": "9865447876"
+  },
+  {
+    "firstName": "sonam",
+    "lastName": "dhurat",
+    "state": "mp",
+    "city": "bhopal",
+    "zip": "8765",
+    "phoneNumber": "987645757"
+  }
+]

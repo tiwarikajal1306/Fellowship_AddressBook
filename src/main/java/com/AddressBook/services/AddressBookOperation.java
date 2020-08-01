@@ -2,6 +2,7 @@ package com.AddressBook.services;
 
 import com.AddressBook.model.Person;
 import com.AddressBook.utility.CSVFileOperation;
+import com.AddressBook.utility.GSONFileOperation;
 import com.AddressBook.utility.JSONFileOperation;
 
 import java.util.ArrayList;
@@ -15,10 +16,12 @@ public class AddressBookOperation implements IAddressBookOperation {
     List<Person> sampleAddressBook;
     JSONFileOperation jsonFileOperation = new JSONFileOperation();
     CSVFileOperation csvFileOperation = new CSVFileOperation();
+    GSONFileOperation gsonFileOperation = new GSONFileOperation();
     Scanner sc = new Scanner(System.in);
 
     String JSON_FILE_PATH = "./src/main/resources/AddressBook.json";
     String CSV_FILE_PATH = "./src/main/resources/AddressBook.csv";
+    String GSON_FILE_PATH = "./src/main/resources/AddressBookGson.json";
 
     @Override
     public void addPerson() {
@@ -187,5 +190,13 @@ public class AddressBookOperation implements IAddressBookOperation {
 
     public void writeDataInCSV() {
         csvFileOperation.writeIntoCSVFile(record, CSV_FILE_PATH);
+    }
+
+    public void writeInGSON() {
+        gsonFileOperation.writeInGSONFile(record, GSON_FILE_PATH);
+    }
+
+    public void readDataFromGSON() {
+        record = gsonFileOperation.readFromGSONFile(GSON_FILE_PATH);
     }
 }
