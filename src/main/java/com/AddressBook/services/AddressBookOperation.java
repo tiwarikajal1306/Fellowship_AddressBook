@@ -4,6 +4,7 @@ import com.AddressBook.model.Person;
 import com.AddressBook.utility.CSVFileOperation;
 import com.AddressBook.utility.JSONFileOperationUsingGSONLibrary;
 import com.AddressBook.utility.JSONFileOperation;
+import com.AddressBook.utility.UserValidationCheck;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,6 +18,7 @@ public class AddressBookOperation implements IAddressBookOperation {
     JSONFileOperation jsonFileOperation = new JSONFileOperation();
     CSVFileOperation csvFileOperation = new CSVFileOperation();
     JSONFileOperationUsingGSONLibrary JSONFileOperationUsingGSONLibrary = new JSONFileOperationUsingGSONLibrary();
+    UserValidationCheck userValidationCheck = new UserValidationCheck();
     Scanner sc = new Scanner(System.in);
 
     String JSON_FILE_PATH = "./src/main/resources/AddressBook.json";
@@ -26,25 +28,19 @@ public class AddressBookOperation implements IAddressBookOperation {
     @Override
     public void addPerson() {
         Person person = new Person();
-        System.out.println("Enter first name");
-        String firstName = sc.nextLine();
-        System.out.println("Enter last name");
-        String lastName = sc.nextLine();
+        String firstName = userValidationCheck.validFirstName();
+        String lastName = userValidationCheck.validLastName();
         boolean isPresent = checkDuplicateRecord(firstName, lastName);
         if (!isPresent) {
             person.setFirstName(firstName);
             person.setLastName(lastName);
-            System.out.println("Enter State");
-            String state = sc.nextLine();
+            String state = userValidationCheck.validStateName();
             person.setState(state);
-            System.out.println("Enter City");
-            String city = sc.nextLine();
+            String city = userValidationCheck.validCityName();
             person.setCity(city);
-            System.out.println("Enter zip");
-            String zip = sc.nextLine();
+            String zip = userValidationCheck.validZipCode();
             person.setZip(zip);
-            System.out.println("Enter PhoneNumber");
-            String phoneNumber = sc.nextLine();
+            String phoneNumber = userValidationCheck.validPhoneNumber();
             person.setPhoneNumber(phoneNumber);
         }
         record.add(person);
