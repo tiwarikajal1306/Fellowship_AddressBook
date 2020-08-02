@@ -28,20 +28,20 @@ public class AddressBookOperation implements IAddressBookOperation {
     @Override
     public void addPerson() {
         Person person = new Person();
-        String firstName = userValidationCheck.validFirstName();
-        String lastName = userValidationCheck.validLastName();
-        boolean isPresent = checkDuplicateRecord(firstName, lastName);
+         userValidationCheck.validFirstName();
+         userValidationCheck.validLastName();
+        boolean isPresent = checkDuplicateRecord(userValidationCheck.firstName, userValidationCheck.lastName);
         if (!isPresent) {
-            person.setFirstName(firstName);
-            person.setLastName(lastName);
-            String state = userValidationCheck.validStateName();
-            person.setState(state);
-            String city = userValidationCheck.validCityName();
-            person.setCity(city);
-            String zip = userValidationCheck.validZipCode();
-            person.setZip(zip);
-            String phoneNumber = userValidationCheck.validPhoneNumber();
-            person.setPhoneNumber(phoneNumber);
+            person.setFirstName(userValidationCheck.firstName);
+            person.setLastName(userValidationCheck.lastName);
+            userValidationCheck.validStateName();
+            person.setState(userValidationCheck.state);
+            userValidationCheck.validCityName();
+            person.setCity(userValidationCheck.city);
+            userValidationCheck.validZipCode();
+            person.setZip(userValidationCheck.zipCode);
+            userValidationCheck.validPhoneNumber();
+            person.setPhoneNumber(userValidationCheck.phoneNumber);
         }
         record.add(person);
     }

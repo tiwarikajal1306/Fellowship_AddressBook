@@ -3,71 +3,71 @@ package com.AddressBook.utility;
 import java.util.Scanner;
 
 public class UserValidationCheck {
+    public String phoneNumber;
+    public String zipCode;
+    public String city;
+    public String state;
+    public String lastName;
+    public String firstName;
     Scanner scanner = new Scanner(System.in);
-    public String validFirstName() {
+
+    public void validFirstName() {
         System.out.println("Enter first name");
-        String firstName = scanner.nextLine();
-        if(firstName.matches("^[A-Z]{1}[a-zA-Z]{2,}"))
-        return firstName;
-        else {
+        this.firstName = scanner.nextLine();
+        boolean check = firstName.matches("^[A-Z]{1}[a-zA-Z]{2,}");
+        if (check == false) {
             System.out.println("Entered First Name Is Not Valid..Enter First Name Again");
-            this.validFirstName();
+            validFirstName();
         }
-        return null;
     }
-    public String validLastName() {
+
+    public void validLastName() {
         System.out.println("Enter Last name");
-        String lastName = scanner.nextLine();
-        if(lastName.matches("^[A-Z]{1}[a-zA-Z]{2,}"))
-            return lastName;
-        else {
+        this.lastName = scanner.nextLine();
+        boolean check = lastName.matches("^[A-Z]{1}[a-zA-Z]{2,}");
+        if (check == false) {
             System.out.println("Entered Last Name Is Not Valid..Enter Last Name Again");
-            this.validLastName();
+            validLastName();
         }
-        return null;
     }
-    public String validStateName() {
+
+    public void validStateName() {
         System.out.println("Enter State name");
-        String stateName = scanner.nextLine();
-        if(stateName.matches("^[A-Z]{1}[a-zA-Z]{2,}"))
-            return stateName;
-        else {
+        this.state = scanner.nextLine();
+        boolean check = state.matches("^[A-Z]{1}[a-zA-Z]{2,}");
+        if (check == false) {
             System.out.println("Entered State Name Is Not Valid..Enter State Name Again");
-            this.validStateName();
+            validStateName();
         }
-        return null;
     }
-    public String validCityName() {
+
+    public void validCityName() {
         System.out.println("Enter City name");
-        String cityName = scanner.nextLine();
-        if(cityName.matches("^[A-Z]{1}[a-zA-Z]{2,}"))
-            return cityName;
-        else {
-            System.out.println("Entered City Name Is Not Valid..Enter City Name Again");
-            this.validCityName();
+        this.city = scanner.nextLine();
+        boolean check = city.matches("^[A-Z]{1}[a-zA-Z]{2,}");
+        if (check == false) {
+            System.out.println("Entered City Is Not Valid..Enter City Name Again");
+            validCityName();
         }
-        return null;
     }
-    public String validZipCode() {
+
+    public void validZipCode() {
         System.out.println("Enter Zip Code");
-        String zipCode = scanner.nextLine();
-        if(zipCode.matches("^[1-9][0-9]{5}$"))
-            return zipCode;
-        else {
+        this.zipCode = scanner.nextLine();
+        boolean check = zipCode.matches("^[1-9][0-9]{5}$");
+        if (check == false) {
             System.out.println("Entered Zip Code Is Not Valid..Enter Zip Code Again");
-            this.validZipCode();
+            validZipCode();
         }
-        return null;
     }
-    public String validPhoneNumber() {
+
+    public void validPhoneNumber() {
         System.out.println("Enter Phone Number");
-        String phoneNumber = scanner.nextLine();
-        if(phoneNumber.matches("^[1-9]+[0-9]+[\\ ]?+[1-9]{1}[0-9]{9}$"))
-            return phoneNumber;
-        else {
-            System.out.println("Entered phone Number Is Not Valid..Enter Phone Number Again");
-            this.validPhoneNumber();
+        this.phoneNumber = scanner.nextLine();
+        boolean check = phoneNumber.matches("^[1-9]+[0-9]+[\\ ]?+[1-9]{1}[0-9]{9}$");
+        if (check == false) {
+            System.out.println("Entered Phone Number Is Not Valid..Enter Phone Number Again");
+            validPhoneNumber();
         }
-        return null;
     }
 }
