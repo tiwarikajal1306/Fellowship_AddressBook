@@ -1,0 +1,20 @@
+{
+  "personDetail": [
+    {
+      "id": 1,
+      "FirstName": "Kajal Tiwari",
+      "PhoneNumber": "9130924724",
+      "City": "Pune",
+      "State": "Maharashtra",
+      "ZipCode": "123456"
+    },
+    {
+      "id": 2,
+      "FirstName": "Bhakti Dhurat",
+      "PhoneNumber": "1234567890",
+      "City": "Pune",
+      "State": "Maharashtra",
+      "zipCode": "123456"
+    }
+  ]
+}
