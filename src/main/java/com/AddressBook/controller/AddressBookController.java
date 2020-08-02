@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class AddressBookController {
 
     public static void main(String[] args) {
-        System.out.println("welcome to the address book");
+        System.out.println("********Welcome to the address book********");
         AddressBookOperation addressBookOperation = new AddressBookOperation();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the choice \n1 JSONFile \n2 CSVFile \n3 GSONFile");
+        System.out.println("Enter the choice \n1 JSON File \n2 CSV File \n3 JSON File Using GSON Library");
         int choice = scanner.nextInt();
         switch(choice) {
             case 1 :
@@ -20,14 +20,17 @@ public class AddressBookController {
                 addressBookOperation.readDataFromCSV();
                 break;
             case 3 :
-                addressBookOperation.readDataFromGSON();
+                addressBookOperation.readDataFromJSONUSingGSONLibrary();
                 break;
         }
         int repeat = 1;
         while (repeat == 1) {
-            System.out.println("Enter the choice \n1 AddPerson \n2 ViewRecords \n3 EditInformation \n4 deleteRecord " +
-                    "\n5 sortTheEntriesByName \n6 sort TheEntriesByAddress \n7 viewByCityAndState" +
-                    " \n8 searchRecordByCityOrState" + "\n9 WriteInJson" + "\n10 WriteInCsv" + "\n11 WriteInGson");
+            System.out.println("Enter the choice \n1 Add Person Detail \n2 View Person Detail \n3 Edit Person Detail" +
+                    " \n4 Delete Person Detail " +
+                    "\n5 Sort The Person Detail By Name \n6 Sort The Person Detail By Address" +
+                    " \n7 View Person Detail By City And State" +
+                    "\n8 Search Person Detail By City Or State" + "\n9 Write Person Detail In Json" +
+                    "\n10 Write Person Detail In Csv" + "\n11 Write Person Detail In JSON Using Gson Library");
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -82,7 +85,7 @@ public class AddressBookController {
                     break;
 
                 case 11 :
-                    addressBookOperation.writeInGSON();
+                    addressBookOperation.writeInJSONUSingGSONLibrary();
                     break;
 
                 default:

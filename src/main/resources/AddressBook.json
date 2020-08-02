@@ -1,1 +1,32 @@
-[{"addressBook":{"Zip":"8774","MobileNumber":"94758676","FirstName":"kajal","State":"maha","LastName":"tiwari","City":"pune"}},{"addressBook":{"Zip":"8765","MobileNumber":"9865447876","FirstName":"swati","State":"mp","LastName":"singh","City":"bhopal"}},{"addressBook":{"Zip":"8765","MobileNumber":"987645757","FirstName":"sonam","State":"mp","LastName":"dhurat","City":"bhopal"}}]
+[
+  {
+    "addressBook": {
+      "Zip": "8765",
+      "MobileNumber": "9865447876",
+      "FirstName": "swati",
+      "State": "mp",
+      "LastName": "singh",
+      "City": "bhopal"
+    }
+  },
+  {
+    "addressBook": {
+      "Zip": "8765",
+      "MobileNumber": "987645757",
+      "FirstName": "sonam",
+      "State": "mp",
+      "LastName": "dhurat",
+      "City": "bhopal"
+    }
+  },
+  {
+    "addressBook": {
+      "Zip": "9876",
+      "MobileNumber": "9130924724",
+      "FirstName": "kajal",
+      "State": "up",
+      "LastName": "tiwari",
+      "City": "pune"
+    }
+  }
+]

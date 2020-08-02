@@ -49,9 +49,9 @@ public class JSONFileOperation {
         }
     }
 
-    private Person parseAddressBookObject(JSONObject book) {
+    private Person parseAddressBookObject(JSONObject personDetail) {
         Person person = new Person();
-        JSONObject addressBookObject = (JSONObject) book.get("addressBook");
+        JSONObject addressBookObject = (JSONObject) personDetail.get("addressBook");
         String firstName = (String) addressBookObject.get("FirstName");
         person.setFirstName(firstName);
         String lastName = (String) addressBookObject.get("LastName");

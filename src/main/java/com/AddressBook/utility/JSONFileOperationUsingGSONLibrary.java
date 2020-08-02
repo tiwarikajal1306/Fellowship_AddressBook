@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class GSONFileOperation {
-    public void writeInGSONFile(List<Person> addressBook, String filePath) {
+public class JSONFileOperationUsingGSONLibrary {
+    public void writeInJSONFileUsingGSONLibrary(List<Person> addressBook, String filePath) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(addressBook);
         try (FileWriter fileWriter = new FileWriter(filePath)){

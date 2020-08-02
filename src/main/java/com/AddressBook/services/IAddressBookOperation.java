@@ -9,4 +9,10 @@ public interface IAddressBookOperation {
     void sortRecordByAddress();
     void viewRecordByCityAndState(String city, String state);
     void searchRecordByCityOrState();
+    void readJsonData();
+    void writeInJson();
+    void readDataFromCSV();
+    void writeDataInCSV();
+    void writeInJSONUSingGSONLibrary();
+    void readDataFromJSONUSingGSONLibrary();
 }
