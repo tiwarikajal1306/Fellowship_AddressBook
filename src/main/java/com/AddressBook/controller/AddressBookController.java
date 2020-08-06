@@ -10,7 +10,7 @@ public class AddressBookController {
         System.out.println("********Welcome to the address book********");
         AddressBookOperation addressBookOperation = new AddressBookOperation();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter The Choice \n1 JSON File \n2 CSV File \n3 JSON File Using GSON Library");
+        System.out.println("Enter The Choice \n1 JSON File \n2 CSV File \n3 JSON File Using GSON Library \n4 Mysql Database");
         int choice = scanner.nextInt();
         switch(choice) {
             case 1 :
@@ -21,6 +21,8 @@ public class AddressBookController {
                 break;
             case 3 :
                 addressBookOperation.readDataFromJSONUSingGSONLibrary();
+                break;
+            case 4 :
                 break;
         }
         int repeat = 1;

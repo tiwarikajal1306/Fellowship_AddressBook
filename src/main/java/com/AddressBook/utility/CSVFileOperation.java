@@ -17,22 +17,23 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class CSVFileOperation {
-    public void writeIntoCSVFile(List<Person> addressBook, String csvFilePath) {
-        try (Writer writer = Files.newBufferedWriter(Paths.get(csvFilePath))) {
 
-            StatefulBeanToCsv<Person> beanToCsv = new StatefulBeanToCsvBuilder<Person>(writer)
-                    .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
-                    .build();
-            beanToCsv.write(addressBook);
+        public void writeIntoCSVFile (List < Person > addressBook, String csvFilePath){
+            try (Writer writer = Files.newBufferedWriter(Paths.get(csvFilePath))) {
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (CsvRequiredFieldEmptyException e) {
-            e.printStackTrace();
-        } catch (CsvDataTypeMismatchException e) {
-            e.printStackTrace();
+                StatefulBeanToCsv<Person> beanToCsv = new StatefulBeanToCsvBuilder<Person>(writer)
+                        .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
+                        .build();
+                beanToCsv.write(addressBook);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (CsvRequiredFieldEmptyException e) {
+                e.printStackTrace();
+            } catch (CsvDataTypeMismatchException e) {
+                e.printStackTrace();
+            }
         }
-    }
 
     public List<Person> readDataFromCSVFile(String filePath) {
         List<Person> addressBook;

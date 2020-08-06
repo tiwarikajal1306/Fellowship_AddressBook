@@ -1,10 +1,7 @@
 package com.AddressBook.services;
 
 import com.AddressBook.model.Person;
-import com.AddressBook.utility.CSVFileOperation;
-import com.AddressBook.utility.JSONFileOperationUsingGSONLibrary;
-import com.AddressBook.utility.JSONFileOperation;
-import com.AddressBook.utility.UserValidationCheck;
+import com.AddressBook.utility.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -19,6 +16,7 @@ public class AddressBookOperation implements IAddressBookOperation {
     CSVFileOperation csvFileOperation = new CSVFileOperation();
     JSONFileOperationUsingGSONLibrary JSONFileOperationUsingGSONLibrary = new JSONFileOperationUsingGSONLibrary();
     UserValidationCheck userValidationCheck = new UserValidationCheck();
+    MySqlOperation mySqlOperation = new MySqlOperation();
     Scanner sc = new Scanner(System.in);
 
     String JSON_FILE_PATH = "./src/main/resources/AddressBook.json";
@@ -44,6 +42,8 @@ public class AddressBookOperation implements IAddressBookOperation {
             person.setPhoneNumber(userValidationCheck.phoneNumber);
         }
         record.add(person);
+        mySqlOperation.insertData(person.getFirstName(),person.getLastName(),person.getCity(),person.getPhoneNumber(),
+                person.getState(),person.getZip());
     }
 
     private boolean checkDuplicateRecord(String firstName, String lastName) {
