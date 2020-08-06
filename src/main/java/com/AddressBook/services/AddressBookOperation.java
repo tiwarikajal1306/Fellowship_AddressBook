@@ -1,7 +1,11 @@
 package com.AddressBook.services;
 
+import com.AddressBook.config.MySqlOperation;
 import com.AddressBook.model.Person;
-import com.AddressBook.utility.*;
+import com.AddressBook.utility.CSVFileOperation;
+import com.AddressBook.utility.JSONFileOperation;
+import com.AddressBook.utility.JSONFileOperationUsingGSONLibrary;
+import com.AddressBook.utility.UserValidationCheck;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -10,7 +14,6 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class AddressBookOperation implements IAddressBookOperation {
-    private List<Person> record = new ArrayList<>();
     List<Person> sampleAddressBook;
     JSONFileOperation jsonFileOperation = new JSONFileOperation();
     CSVFileOperation csvFileOperation = new CSVFileOperation();
@@ -18,16 +21,16 @@ public class AddressBookOperation implements IAddressBookOperation {
     UserValidationCheck userValidationCheck = new UserValidationCheck();
     MySqlOperation mySqlOperation = new MySqlOperation();
     Scanner sc = new Scanner(System.in);
-
     String JSON_FILE_PATH = "./src/main/resources/AddressBook.json";
     String CSV_FILE_PATH = "./src/main/resources/AddressBook.csv";
     String JSON_FILE_PATH2 = "./src/main/resources/AddressBookGson.json";
+    private List<Person> record = new ArrayList<>();
 
     @Override
     public void addPerson() {
         Person person = new Person();
-         userValidationCheck.validFirstName();
-         userValidationCheck.validLastName();
+        userValidationCheck.validFirstName();
+        userValidationCheck.validLastName();
         boolean isPresent = checkDuplicateRecord(userValidationCheck.firstName, userValidationCheck.lastName);
         if (!isPresent) {
             person.setFirstName(userValidationCheck.firstName);
@@ -42,8 +45,8 @@ public class AddressBookOperation implements IAddressBookOperation {
             person.setPhoneNumber(userValidationCheck.phoneNumber);
         }
         record.add(person);
-        mySqlOperation.insertData(person.getFirstName(),person.getLastName(),person.getCity(),person.getPhoneNumber(),
-                person.getState(),person.getZip());
+        mySqlOperation.insertData(person.getFirstName(), person.getLastName(), person.getCity(), person.getPhoneNumber(),
+                person.getState(), person.getZip());
     }
 
     private boolean checkDuplicateRecord(String firstName, String lastName) {
@@ -59,6 +62,7 @@ public class AddressBookOperation implements IAddressBookOperation {
     @Override
     public void viewRecord() {
         record.forEach(System.out::println);
+        mySqlOperation.selectRecords();
     }
 
     @Override
@@ -96,6 +100,39 @@ public class AddressBookOperation implements IAddressBookOperation {
                         break;
                 }
             }
+        }
+    }
+
+    public void editDatabaseDetails() {
+        System.out.println("Enter mobileNumber of the person for updating details");
+        String number = sc.nextLine();
+        System.out.println("Choose option: \n" +
+                " 1 = Edit mobile number\n" +
+                " 2 = Edit State\n" +
+                " 3 = Edit city\n" +
+                " 4 = Edit zip");
+        int input = Integer.parseInt(sc.nextLine());
+        switch (input) {
+            case 1:
+                System.out.println("Enter mobile number");
+                String mobileNumber = sc.nextLine();
+                mySqlOperation.updateData(number, 1, mobileNumber);
+                break;
+            case 2:
+                System.out.println("Enter State");
+                String state = sc.nextLine();
+                mySqlOperation.updateData(number, 2, state);
+                break;
+            case 3:
+                System.out.println("Enter city");
+                String city = sc.nextLine();
+                mySqlOperation.updateData(number, 3, city);
+                break;
+            case 4:
+                System.out.println("Enter zip");
+                String zip = sc.nextLine();
+                mySqlOperation.updateData(number, 4, zip);
+                break;
         }
     }
 

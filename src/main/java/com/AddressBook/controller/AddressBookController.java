@@ -32,7 +32,8 @@ public class AddressBookController {
                     "\n5 Sort The Person Detail By Name \n6 Sort The Person Detail By Address" +
                     " \n7 View Person Detail By City And State" +
                     "\n8 Search Person Detail By City Or State" + "\n9 Write Person Detail In Json" +
-                    "\n10 Write Person Detail In Csv" + "\n11 Write Person Detail In JSON Using Gson Library");
+                    "\n10 Write Person Detail In Csv" + "\n11 Write Person Detail In JSON Using Gson Library" +
+                    "\n12 Edit person detail in database ");
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -90,6 +91,9 @@ public class AddressBookController {
                     addressBookOperation.writeInJSONUSingGSONLibrary();
                     break;
 
+                case 12 :
+                    addressBookOperation.editDatabaseDetails();
+                    break;
                 default:
                     System.out.println("Invalid choice");
                     break;
