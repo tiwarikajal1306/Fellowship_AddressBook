@@ -5,9 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-   private static final String driver = "com.mysql.cj.jdbc.Driver";
-   //private static final String url = "jdbc:mysql://localhost:3306/addressbook";
-   private static final String url = "jdbc:mysql://localhost:3306/addressbook?autoReconnect=true&useSSL=false";
+    private static final String driver = "com.mysql.cj.jdbc.Driver";
+    private static final String url = "jdbc:mysql://localhost:3306/addressbook?autoReconnect=true&useSSL=false";
     private static final String uid = "root";
     private static final String password = "root";
 

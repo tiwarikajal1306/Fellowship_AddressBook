@@ -56,11 +56,10 @@ public class MySqlOperation {
     }
 
     public void insertData(String firstName, String lastName, String city, String phoneNumber, String state, String zip) {
-        MySqlOperation mySqlOperation = new MySqlOperation();
         String cmd = "insert into persondetails(firstName,lastName,city,phoneNumber,state,zip) " +
                 "values('" + firstName + "','" + lastName + "','" + city + "','" + phoneNumber + "','" + state +
                 "','" + zip + "')";
-        if (mySqlOperation.recordManipulation(cmd)) {
+        if (this.recordManipulation(cmd)) {
             System.out.println("Record Has Been Saved Sucessfully");
         } else {
             System.out.println("Not Added Successfully.");
@@ -68,7 +67,6 @@ public class MySqlOperation {
     }
 
     public void updateData(String phoneNumber, int type, String value) {
-        MySqlOperation mySqlOperation = new MySqlOperation();
         String cmd = null;
         switch (type) {
             case 1:
@@ -84,10 +82,30 @@ public class MySqlOperation {
                 cmd = "update persondetails set zip='" + value + "' where phoneNumber='" + phoneNumber + "'";
                 break;
         }
-        if (mySqlOperation.recordManipulation(cmd)) {
-            System.out.println("Information updated");
+        if (this.recordManipulation(cmd)) {
+            System.out.println("Information Updated");
         } else {
-            System.out.println("Information not updated");
+            System.out.println("Information Not Updated");
+        }
+    }
+
+    public void deleteData(String mobileNumber) {
+        String cmd = "delete from persondetails where phoneNumber='" + mobileNumber + "'";
+        if (this.recordManipulation(cmd)) {
+            System.out.println("Person Deleted");
+        } else {
+            System.out.println("Person Not Deleted");
+        }
+    }
+
+    public void sort() {
+        try {
+            connection = DBConnection.getConnection();
+            statement = connection.createStatement();
+            String query = "select * from persondetails ORDER BY firstName" + " ASC";
+            statement.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

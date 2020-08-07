@@ -12,17 +12,17 @@ public class AddressBookController {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter The Choice \n1 JSON File \n2 CSV File \n3 JSON File Using GSON Library \n4 Mysql Database");
         int choice = scanner.nextInt();
-        switch(choice) {
-            case 1 :
+        switch (choice) {
+            case 1:
                 addressBookOperation.readJsonData();
                 break;
-            case 2 :
+            case 2:
                 addressBookOperation.readDataFromCSV();
                 break;
-            case 3 :
+            case 3:
                 addressBookOperation.readDataFromJSONUSingGSONLibrary();
                 break;
-            case 4 :
+            case 4:
                 break;
         }
         int repeat = 1;
@@ -33,7 +33,8 @@ public class AddressBookController {
                     " \n7 View Person Detail By City And State" +
                     "\n8 Search Person Detail By City Or State" + "\n9 Write Person Detail In Json" +
                     "\n10 Write Person Detail In Csv" + "\n11 Write Person Detail In JSON Using Gson Library" +
-                    "\n12 Edit person detail in database ");
+                    "\n12 Edit person detail in database" + "\n13 Delete Person From Database table" +
+                    "\n14 Sort The Person Detail from Database Table");
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -87,12 +88,18 @@ public class AddressBookController {
                     addressBookOperation.writeDataInCSV();
                     break;
 
-                case 11 :
+                case 11:
                     addressBookOperation.writeInJSONUSingGSONLibrary();
                     break;
 
-                case 12 :
-                    addressBookOperation.editDatabaseDetails();
+                case 12:
+                    addressBookOperation.editDetailsFromTable();
+                    break;
+                case 13:
+                    addressBookOperation.deletePersonFromDBTable();
+                    break;
+                case 14:
+                    addressBookOperation.sortDataInDBTable();
                     break;
                 default:
                     System.out.println("Invalid choice");

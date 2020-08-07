@@ -103,7 +103,7 @@ public class AddressBookOperation implements IAddressBookOperation {
         }
     }
 
-    public void editDatabaseDetails() {
+    public void editDetailsFromTable() {
         System.out.println("Enter mobileNumber of the person for updating details");
         String number = sc.nextLine();
         System.out.println("Choose option: \n" +
@@ -143,6 +143,12 @@ public class AddressBookOperation implements IAddressBookOperation {
         );
     }
 
+    public void deletePersonFromDBTable() {
+        System.out.println("Enter the PhoneNumber Of Person to be deleted");
+        String mobileNumber = sc.nextLine();
+        mySqlOperation.deleteData(mobileNumber);
+    }
+
     @Override
     public void sortTheRecordByName() {
         record.sort(Comparator.comparing(Person::getFirstName).
@@ -167,6 +173,10 @@ public class AddressBookOperation implements IAddressBookOperation {
                 System.out.println("Invalid choice");
                 break;
         }
+    }
+
+    public void sortDataInDBTable() {
+        mySqlOperation.sort();
     }
 
     @Override
